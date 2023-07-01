@@ -8,6 +8,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// newBugReportCmd return bug-report command.
 func newBugReportCmd() *cobra.Command {
 	return &cobra.Command{
 		Use:     "bug-report",

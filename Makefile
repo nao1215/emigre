@@ -2,6 +2,7 @@
 
 APP         = emigre
 VERSION     = $(shell git describe --tags --abbrev=0)
+GIT_REVISION := $(shell git rev-parse HEAD)
 GO          = go
 GO_BUILD    = $(GO) build
 GO_TEST     = $(GO) test -v
@@ -10,10 +11,17 @@ GOOS        = ""
 GOARCH      = ""
 GO_PKGROOT  = ./...
 GO_PACKAGES = $(shell $(GO_LIST) $(GO_PKGROOT))
-GO_LDFLAGS  = -ldflags '-X github.com/nao1215/emigre/cmd.Version=${VERSION}'
+GO_LDFLAGS  = -ldflags '-X github.com/nao1215/emigre/version.Version=${VERSION}' -ldflags "-X github.com/nao1215/emigre/version.Revision=$(GIT_REVISION)"
 
 build:  ## Build binary
 	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO_BUILD) $(GO_LDFLAGS) -o $(APP) main.go
+
+run: ## Run server
+	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run main.go
+
+generate: ## Generate file automatically
+	$(GO) generate ./...
+	swag init
 
 clean: ## Clean project
 	-rm -rf $(APP) cover.out cover.html

@@ -1,0 +1,41 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/health": {
+            "get": {
+                "description": "This API is for checking server health. The api return server name, version and revision.",
+                "summary": "Get server health information",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/api.HealthResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "api.HealthResponse": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "@Description Name is server name.",
+                    "type": "string"
+                },
+                "revision": {
+                    "description": "@Description Revision is git revision",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "@Description Version is repository tag version",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
