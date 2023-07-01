@@ -19,6 +19,10 @@ build:  ## Build binary
 run: ## Run server
 	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run main.go
 
+generate: ## Generate file automatically
+	$(GO) generate ./...
+	swag init
+
 clean: ## Clean project
 	-rm -rf $(APP) cover.out cover.html
 

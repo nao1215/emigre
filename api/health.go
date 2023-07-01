@@ -9,11 +9,11 @@ import (
 
 // HealthResponse is response for GET /health
 type HealthResponse struct {
-	// Name is server name.
+	// @Description Name is server name.
 	Name string `json:"name"`
-	// Version is repository tag version
+	// @Description Version is repository tag version
 	Version string `json:"version"`
-	// Revision is git revision
+	// @Description Revision is git revision
 	Revision string `json:"revision"`
 }
 
@@ -36,6 +36,10 @@ func newHealthResponse() *HealthResponse {
 }
 
 // health return health response.
+// @Summary Get server health information
+// @Description This API is for checking server health. The api return server name, version and revision.
+// @Success 200 {object} HealthResponse
+// @Router /health [get]
 func health(c echo.Context) error {
 	return c.JSON(http.StatusOK, newHealthResponse())
 }
