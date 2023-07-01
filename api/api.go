@@ -1,4 +1,4 @@
-// Package api controll emigre api.
+// Package api control emigre api.
 package api
 
 import (

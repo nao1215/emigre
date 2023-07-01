@@ -43,7 +43,7 @@ func TestHealthHandler(t *testing.T) {
 }
 
 // This test is not parallel because it changes the global variable.
-func TestNewHealthResponse(t *testing.T) {
+func TestNewHealthResponse(t *testing.T) { //nolint:paralleltest
 	type args struct {
 		tagVersion string
 		revision   string
@@ -102,7 +102,7 @@ func TestNewHealthResponse(t *testing.T) {
 			},
 		},
 	}
-	for _, tt := range tests {
+	for _, tt := range tests { //nolint:paralleltest
 		version.TagVersion = tt.args.tagVersion
 		version.Revision = tt.args.revision
 
