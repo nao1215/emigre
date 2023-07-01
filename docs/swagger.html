@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Swagger Viewer</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.52.0/swagger-ui.min.css" />
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.52.0/swagger-ui-bundle.min.js"></script>
+    <script>
+        window.onload = function() {
+            const url = 'https://nao1215.github.io/emigre/swagger.json';
+            SwaggerUIBundle({
+                url: url,
+                dom_id: '#swagger-ui',
+                presets: [SwaggerUIBundle.presets.apis],
+                layout: 'BaseLayout'
+            });
+        };
+    </script>
+</body>
+</html>
