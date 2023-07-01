@@ -2,34 +2,21 @@ package cmd
 
 import (
 	"fmt"
-	"runtime/debug"
 
+	ver "github.com/nao1215/emigre/version"
 	"github.com/spf13/cobra"
 )
 
-var (
-	// Version value is set by ldflags
-	Version string //nolint
-	// Name is cli command name
-	Name = "emigre" //nolint
-)
-
-// getVersion return emigre command version.
-// Version global variable is set by ldflags.
-func getVersion(_ *cobra.Command, _ []string) {
-	version := "unknown"
-	if Version != "" {
-		version = Version
-	} else if buildInfo, ok := debug.ReadBuildInfo(); ok {
-		version = buildInfo.Main.Version
-	}
-	fmt.Printf("%s version %s (under MIT LICENSE)\n", Name, version)
-}
-
+// newVersionCmd return version command.
 func newVersionCmd() *cobra.Command {
 	return &cobra.Command{
 		Use:   "version",
-		Short: "Show " + Name + " command version information",
-		Run:   getVersion,
+		Short: "Show " + ver.Name + " command version information",
+		Run:   version,
 	}
+}
+
+// version return emigre command version.
+func version(_ *cobra.Command, _ []string) {
+	fmt.Printf("%s version %s, revision %s (under MIT LICENSE)\n", ver.Name, ver.TagVersion, ver.Revision)
 }

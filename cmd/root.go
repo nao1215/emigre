@@ -3,14 +3,17 @@ package cmd
 
 import (
 	"github.com/charmbracelet/log"
+	"github.com/nao1215/emigre/api"
 	"github.com/spf13/cobra"
 )
 
 func newRootCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "emigre",
-		Short: "emigre",
-		RunE:  nil,
+		Short: "emigre is an API server for an image sharing service",
+		RunE: func(_ *cobra.Command, _ []string) error {
+			return api.Run()
+		},
 	}
 	cmd.CompletionOptions.DisableDefaultCmd = true
 	cmd.SilenceUsage = true
@@ -20,7 +23,7 @@ func newRootCmd() *cobra.Command {
 	return cmd
 }
 
-// Execute run leadtime process.
+// Execute run process.
 func Execute() int {
 	rootCmd := newRootCmd()
 
