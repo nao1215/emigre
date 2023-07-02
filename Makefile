@@ -22,6 +22,7 @@ run: ## Run server
 generate: ## Generate file automatically
 	$(GO) generate ./...
 	swag init
+	sqlc generate --file app/schema/sqlc.yml 
 
 clean: ## Clean project
 	-rm -rf $(APP) cover.out cover.html
