@@ -20,9 +20,11 @@ run: ## Run server
 	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run main.go
 
 generate: ## Generate file automatically
+	docker-compose up -d
 	$(GO) generate ./...
 	swag init
 	sqlc generate --file app/schema/sqlc.yml 
+	tbls doc
 
 clean: ## Clean project
 	-rm -rf $(APP) cover.out cover.html

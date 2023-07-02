@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS emigre;
+USE emigre;
+
 CREATE TABLE `user` (
     `id` VARCHAR(191) NOT NULL COMMENT 'ID is user id. ULID（Universally Unique Lexicographically Sortable Identifier）',
     `name` VARCHAR(191) NOT NULL COMMENT 'Name is user name',
