@@ -20,7 +20,7 @@ run: ## Run server
 	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run main.go
 
 generate: ## Generate file automatically
-	docker-compose up -d
+	docker-compose up -d db
 	$(GO) generate ./...
 	swag init
 	sqlc generate --file app/schema/sqlc.yml 
