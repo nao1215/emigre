@@ -42,5 +42,13 @@ The server-side is implemented using Golang. The server-side is expected to be i
 | Test framework | [ginkgo](https://github.com/onsi/ginkgo)|
 | Dependency Injection |[wire](https://github.com/google/wire)|
 
+## Infrastructure tools
+| Category | Technology |
+|:---|:---|
+| Infrastructure as Code | [CloudFormation](https://aws.amazon.com/cloudformation/?nc1=h_ls) |
+| AWS Mock| [localstack](https://localstack.cloud/)|
+| AWS CLI| [aws-cli](https://github.com/aws/aws-cli), [awscli-local](https://github.com/localstack/awscli-local)|
+
+
 ## What does Emigre mean?
 The Emigre is derived from the Emigre document in SHADOW HEART (it is game game developed for the PlayStation 2). The Emigre document describes a secret technique that overcomes death and creates new life from nothingness. I write code out of technical interest, however I also desire for the software to endure.
