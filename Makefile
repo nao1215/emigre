@@ -33,6 +33,10 @@ test: ## Start test
 	env GOOS=$(GOOS) $(GO_TEST) -cover $(GO_PKGROOT) -coverprofile=cover.out
 	$(GO_TOOL) cover -html=cover.out -o cover.html
 
+create-local-s3:
+	docker-compose up -d localstack
+	$(MAKE) -f cloudformation/Makefile local-s3
+
 .DEFAULT_GOAL := help
 help:  
 	@grep -E '^[0-9a-zA-Z_-]+[[:blank:]]*:.*?## .*$$' $(MAKEFILE_LIST) | sort \
