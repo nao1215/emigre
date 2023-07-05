@@ -9,12 +9,9 @@
 # emigre - Self-hosted image sharing social media
 **work in progress**  
   
-emigre is a self-hosted server and client that mimics an image posting service. The purpose of developing Emigre is to validate technology stacks that are not used in the company that I belong to. In other words, satisfying technical interests is more important than creating a popular service.
+Emigre is an image sharing service aiming to be a decentralized social networking platform based on ActivityPub. Currently, it is in the design phase and has very few functionalities.   
 
-Emigre is expected to be implemented using the following technologies:
-- Server-side: Golang
-- Infrastructure: AWS (Amazon Web Services)
-- Client-side: Android application or GUI written in Golang
+Emigre is being developed to satisfy the technical interests of the developer (myself). Specifically, the goal is to develop it by distancing oneself from the frameworks and libraries used in work.
 
 ## Support OS & golang version
 - Linux 
@@ -22,41 +19,35 @@ Emigre is expected to be implemented using the following technologies:
 - Windows
 - golang ver 1.18 or later
 
+## How to install
+WIP
+
+## How to develop
+WIP
+
 ## Documentations
 - [API Document](https://nao1215.github.io/emigre/index.html)
 - [Go reference](https://pkg.go.dev/github.com/nao1215/emigre)
 
-## Server-side tools
-The server-side is implemented using Golang. The server-side is expected to be implemented using the following technologies:
-| Category | Technology |
-|:---|:---|
-| Web framework | [Echo](https://echo.labstack.com/) |
-| Database | [MySQL](https://www.mysql.com/) or [SQLite3](https://www.sqlite.org/index.html) |
-| SQL(DDL, Query, etc) | Not use tool. Write it myself. |
-| DB Accessor | [sqlc](https://github.com/kyleconroy/sqlc) |
-| DB migration| TBD |
-| Swagger generator | [echo-swagger](https://github.com/swaggo/echo-swagger) |
-| ER diagram| [tbls](https://github.com/k1LoW/tbls)|
-| Test coverage | [ocotcov](https://github.com/k1LoW/octocov)|
-| Static Analysis| [reviewdog](https://github.com/reviewdog/reviewdog)|
-| Test framework | [ginkgo](https://github.com/onsi/ginkgo)|
-| Dependency Injection |[wire](https://github.com/google/wire)|
+## Technology stack
+The technology stack used in Emigre is introduced on [another page](./docs/technology_stack.md).
 
-## Infrastructure tools
-| Category | Technology |
-|:---|:---|
-| Infrastructure as Code | [CloudFormation](https://aws.amazon.com/cloudformation/?nc1=h_ls) |
-| AWS Mock| [localstack](https://localstack.cloud/)|
-| AWS CLI| [aws-cli](https://github.com/aws/aws-cli), [awscli-local](https://github.com/localstack/awscli-local)|
 
 ## Contribution
-First off, thanks for taking the time to contribute! Contributions are not only related to development. For example, GitHub Star motivates me to develop!  
+First off, thanks for taking the time to contribute! Contributions are not only related to development. For example, GitHub Star motivates me to develop! 
+  
 The emigre is a service that incurs infrastructure costs. While still in the development stage, I am actively seeking financial support from those who are willing. Any funds received will be utilized entirely for covering infrastructure expenses.
 - [GitHub Sponsors](https://github.com/sponsors/nao1215)
 - [Patreon](https://www.patreon.com/emigre680)
 
 ## LICENSE
 [MIT LICENSE](./LICENSE)
+
+## Special Thanks
+![localstack](./docs/images/localstack-readme-banner.svg)
+[LocalStack](https://localstack.cloud/) is a service that mocks AWS, covering a wide range of AWS services. It is not easy to set up an AWS infrastructure for personal development, but LocalStack has lowered the barrier for server application development.   
+
+It has been incredibly helpful for my technical learning, and among the open-source software (OSS) I encountered in 2023, LocalStack is undoubtedly the best tool. I would like to take this opportunity to express my gratitude.
 
 ## What does Emigre mean?
 The Emigre is derived from the Emigre document in SHADOW HEART (it is game game developed for the PlayStation 2). The Emigre document describes a secret technique that overcomes death and creates new life from nothingness. I write code out of technical interest, however I also desire for the software to endure.
