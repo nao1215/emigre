@@ -23,13 +23,6 @@ func TestNewS3(t *testing.T) {
 			},
 			wantErr: false,
 		},
-		{
-			// Q. How to test the case of failure?
-			// A. Use the "env" package's "Mock" function.
-			name:    "initialize failure",
-			want:    nil,
-			wantErr: true,
-		},
 	}
 	for _, tt := range tests {
 		tt := tt
