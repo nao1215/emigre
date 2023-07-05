@@ -3,6 +3,7 @@ module github.com/nao1215/emigre
 go 1.20
 
 require (
+	github.com/caarlos0/env/v9 v9.0.0
 	github.com/charmbracelet/log v0.2.2
 	github.com/google/go-cmp v0.5.9
 	github.com/labstack/echo/v4 v4.10.2
