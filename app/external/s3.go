@@ -20,6 +20,9 @@ type S3Downloader struct {
 
 var _ service.FileDownloder = &S3Downloader{}
 
+// downloadBufferSize is the buffer size for downloading files. It's 5MB.
+const downloadBufferSize = 5 * 1024 * 1024
+
 // NewS3Downloader returns a new S3Downloader struct.
 func NewS3Downloader(config config.S3) *S3Downloader {
 	session := session.Must(session.NewSessionWithOptions(session.Options{
@@ -27,7 +30,7 @@ func NewS3Downloader(config config.S3) *S3Downloader {
 		Config:            aws.Config{Region: aws.String(config.Region.String())},
 	}))
 	downloader := s3manager.NewDownloader(session, func(d *s3manager.Downloader) {
-		d.BufferProvider = s3manager.NewPooledBufferedWriterReadFromProvider(5 * 1024 * 1024) // 5MB
+		d.BufferProvider = s3manager.NewPooledBufferedWriterReadFromProvider(downloadBufferSize)
 	})
 	return &S3Downloader{downloader}
 }
