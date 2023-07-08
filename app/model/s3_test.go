@@ -6,6 +6,8 @@ import (
 )
 
 func TestRegionString(t *testing.T) {
+	t.Parallel()
+
 	tests := []struct {
 		name string
 		r    Region
@@ -18,7 +20,9 @@ func TestRegionString(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
 			if got := tt.r.String(); got != tt.want {
 				t.Errorf("Region.String() = %v, want %v", got, tt.want)
 			}
@@ -26,7 +30,8 @@ func TestRegionString(t *testing.T) {
 	}
 }
 
-func TestBucket_Valid(t *testing.T) {
+func TestBucketValid(t *testing.T) {
+	t.Parallel()
 	tests := []struct {
 		name string
 		b    Bucket
@@ -44,7 +49,9 @@ func TestBucket_Valid(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
 			if got := tt.b.Valid(); got != tt.want {
 				t.Errorf("Bucket.Valid() = %v, want %v", got, tt.want)
 			}
@@ -52,7 +59,8 @@ func TestBucket_Valid(t *testing.T) {
 	}
 }
 
-func TestBucket_String(t *testing.T) {
+func TestBucketString(t *testing.T) {
+	t.Parallel()
 	tests := []struct {
 		name string
 		b    Bucket
@@ -65,7 +73,9 @@ func TestBucket_String(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
 			if got := tt.b.String(); got != tt.want {
 				t.Errorf("Bucket.String() = %v, want %v", got, tt.want)
 			}
