@@ -13,32 +13,27 @@ import (
 	"github.com/nao1215/emigre/config"
 )
 
-// S3 is an implementation for FileDownloader.
-type S3 struct {
+// S3Downloader is an implementation for FileDownloader.
+type S3Downloader struct {
 	*s3manager.Downloader
 }
 
-var _ service.FileDownloder = &S3{}
+var _ service.FileDownloder = &S3Downloader{}
 
-// NewS3 returns a new s3 struct.
-func NewS3(config config.S3) *S3 {
-	awsConfig := &aws.Config{
-		Region: aws.String(config.Region.String()),
-	}
-
+// NewS3Downloader returns a new S3Downloader struct.
+func NewS3Downloader(config config.S3) *S3Downloader {
 	session := session.Must(session.NewSessionWithOptions(session.Options{
 		SharedConfigState: session.SharedConfigEnable, // Ref. ~/.aws/config
-		Config:            *awsConfig,
+		Config:            aws.Config{Region: aws.String(config.Region.String())},
 	}))
-
 	downloader := s3manager.NewDownloader(session, func(d *s3manager.Downloader) {
 		d.BufferProvider = s3manager.NewPooledBufferedWriterReadFromProvider(5 * 1024 * 1024) // 5MB
 	})
-	return &S3{downloader}
+	return &S3Downloader{downloader}
 }
 
-// DownloadFile downloads a file from external storage.
-func (s *S3) DownloadFile(_ context.Context, input *service.FileDownloderInput) (*service.FileDownloderOutput, error) {
+// DownloadFile downloads a file from S3.
+func (s *S3Downloader) DownloadFile(_ context.Context, input *service.FileDownloderInput) (*service.FileDownloderOutput, error) {
 	buf := aws.NewWriteAtBuffer([]byte{})
 	objInput := &s3.GetObjectInput{
 		Bucket: aws.String(input.Config.Bucket.String()),
@@ -51,4 +46,35 @@ func (s *S3) DownloadFile(_ context.Context, input *service.FileDownloderInput) 
 	return &service.FileDownloderOutput{
 		Buffer: bytes.NewBuffer(buf.Bytes()),
 	}, nil
+}
+
+// S3Uploader is an implementation for FileUploader.
+type S3Uploader struct {
+	*s3manager.Uploader
+}
+
+var _ service.FileUploader = &S3Uploader{}
+
+// NewS3Uploader returns a new S3Uploader struct.
+func NewS3Uploader(config config.S3) *S3Uploader {
+	session := session.Must(session.NewSessionWithOptions(session.Options{
+		SharedConfigState: session.SharedConfigEnable, // Ref. ~/.aws/config
+		Config:            aws.Config{Region: aws.String(config.Region.String())},
+	}))
+	return &S3Uploader{s3manager.NewUploader(session)}
+}
+
+// UploadFile uploads a file to S3.
+func (s *S3Uploader) UploadFile(_ context.Context, input *service.FileUploaderInput) (*service.FileUploaderOutput, error) {
+	uploadInput := &s3manager.UploadInput{
+		Bucket: aws.String(input.Config.Bucket.String()),
+		Body:   aws.ReadSeekCloser(input.Data),
+		Key:    aws.String(input.Key),
+		// TODO: Set ContentType
+	}
+
+	if _, err := s.Upload(uploadInput); err != nil {
+		return nil, err
+	}
+	return &service.FileUploaderOutput{}, nil
 }
