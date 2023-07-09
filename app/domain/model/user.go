@@ -28,9 +28,8 @@ func NewUser(id, name, biography, email string) (*User, error) {
 	}
 
 	validate := validator.New()
-	err := validate.Struct(user)
-	if err != nil {
-		validationErrs := err.(validator.ValidationErrors)
+	var validationErrs validator.ValidationErrors
+	if err := validate.Struct(user); errors.As(err, &validationErrs) {
 		var errs error
 		for _, err := range validationErrs {
 			errs = errors.Join(errs, err)

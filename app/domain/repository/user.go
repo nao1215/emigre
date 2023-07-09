@@ -1,3 +1,4 @@
+// Package repository is an abstraction layer for accessing database.
 package repository
 
 import (
