@@ -14,6 +14,10 @@ type User struct {
 	ID string
 	// Name is user name
 	Name string
+	// Biography is user self introduction
+	Biography string
+	// Email is user email address
+	Email string
 	// CreatedAt is the date that record was created
 	CreatedAt time.Time
 	// UpdatedAt is the date record was updated

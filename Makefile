@@ -24,7 +24,7 @@ generate: ## Generate file automatically
 	$(GO) generate ./...
 	swag init
 	sqlc generate --file app/schema/sqlc.yml 
-	tbls doc
+	tbls doc --force 
 
 clean: ## Clean project
 	-rm -rf $(APP) cover.out cover.html

@@ -10,7 +10,9 @@ user table
 ```sql
 CREATE TABLE `user` (
   `id` varchar(191) NOT NULL COMMENT 'ID is user id. ULIDï¼ˆUniversally Unique Lexicographically Sortable Identifierï¼‰',
-  `name` varchar(191) NOT NULL COMMENT 'Name is user name',
+  `name` varchar(20) NOT NULL COMMENT 'Name is user name',
+  `biography` varchar(300) NOT NULL COMMENT 'Biography is user self introduction',
+  `email` varchar(256) NOT NULL COMMENT 'Email is user email address',
   `created_at` datetime NOT NULL COMMENT 'CreatedAt is the date that record was created',
   `updated_at` datetime NOT NULL COMMENT 'UpdatedAt is the date record was updated',
   PRIMARY KEY (`id`)
@@ -24,7 +26,9 @@ CREATE TABLE `user` (
 | Name | Type | Default | Nullable | Children | Parents | Comment |
 | ---- | ---- | ------- | -------- | -------- | ------- | ------- |
 | id | varchar(191) |  | false |  |  | ID is user id. ULIDï¼ˆUniversally Unique Lexicographically Sortable Identifierï¼‰ |
-| name | varchar(191) |  | false |  |  | Name is user name |
+| name | varchar(20) |  | false |  |  | Name is user name |
+| biography | varchar(300) |  | false |  |  | Biography is user self introduction |
+| email | varchar(256) |  | false |  |  | Email is user email address |
 | created_at | datetime |  | false |  |  | CreatedAt is the date that record was created |
 | updated_at | datetime |  | false |  |  | UpdatedAt is the date record was updated |
 
