@@ -4,7 +4,7 @@
 
 | Name | Columns | Comment | Type |
 | ---- | ------- | ------- | ---- |
-| [user](user.md) | 4 | user table | BASE TABLE |
+| [user](user.md) | 6 | user table | BASE TABLE |
 
 ## Relations
 

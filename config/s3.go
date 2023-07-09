@@ -3,7 +3,7 @@ package config
 
 import (
 	"github.com/caarlos0/env/v9"
-	"github.com/nao1215/emigre/app/model"
+	"github.com/nao1215/emigre/app/domain/model"
 )
 
 // S3 is a struct that contains the settings for the S3 storage.
