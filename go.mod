@@ -3,10 +3,11 @@ module github.com/nao1215/emigre
 go 1.20
 
 require (
-	github.com/aws/aws-sdk-go v1.44.295
+	github.com/aws/aws-sdk-go v1.44.298
 	github.com/caarlos0/env/v9 v9.0.0
 	github.com/charmbracelet/log v0.2.2
 	github.com/go-playground/validator/v10 v10.14.1
+	github.com/go-sql-driver/mysql v1.7.1
 	github.com/google/go-cmp v0.5.9
 	github.com/k1LoW/tbls v1.68.0
 	github.com/kyleconroy/sqlc v1.19.0
@@ -82,7 +83,6 @@ require (
 	github.com/go-openapi/swag v0.19.15 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
-	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/goccy/go-graphviz v0.1.0 // indirect
 	github.com/goccy/go-json v0.9.11 // indirect
 	github.com/goccy/go-yaml v1.9.8 // indirect
