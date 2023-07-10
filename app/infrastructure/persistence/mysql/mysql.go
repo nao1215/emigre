@@ -1,3 +1,4 @@
+// Package mysql provides a MySQL database.
 package mysql
 
 import (
@@ -18,13 +19,19 @@ type DB struct {
 
 // NewDB returns a new DB struct.
 func NewDB(config *mysql.Config) (*DB, error) {
+	const (
+		maxOpenConns = 10
+		maxIdleConns = 10
+		maxLifetime  = 10 * time.Second // 10[s]
+	)
+
 	db, err := sql.Open("mysql", config.FormatDSN())
 	if err != nil {
 		return nil, err
 	}
-	db.SetMaxOpenConns(10)
-	db.SetMaxIdleConns(10)
-	db.SetConnMaxLifetime(10 * time.Second) // 10[s]
+	db.SetMaxOpenConns(maxOpenConns)
+	db.SetMaxIdleConns(maxIdleConns)
+	db.SetConnMaxLifetime(maxLifetime)
 	return &DB{DB: db}, nil
 }
 

@@ -1,3 +1,4 @@
+// Package mock is a package for mocking MySQL.
 package mock
 
 import (
