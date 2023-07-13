@@ -4,7 +4,6 @@ package model
 // Region is the name of the AWS region.
 type Region string
 
-// AWSのリージョンを全て定義せよ。ドキュメンテーションコメントもつけること
 const (
 	// RegionUSEast1 US East (N. Virginia)
 	RegionUSEast1 Region = "us-east-1"
