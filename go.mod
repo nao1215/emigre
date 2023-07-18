@@ -11,7 +11,7 @@ require (
 	github.com/google/go-cmp v0.5.9
 	github.com/k1LoW/tbls v1.68.1
 	github.com/kyleconroy/sqlc v1.19.1
-	github.com/labstack/echo/v4 v4.11.0
+	github.com/labstack/echo/v4 v4.11.1
 	github.com/spf13/cobra v1.7.0
 	github.com/stretchr/testify v1.8.4
 	github.com/swaggo/echo-swagger v1.4.0

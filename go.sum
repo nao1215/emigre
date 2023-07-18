@@ -316,8 +316,8 @@ github.com/kyleconroy/sqlc v1.19.1 h1:ZO45HSdlGWSselFFAzl2jD5fqvEKT9hEeIFqErMK1Z
 github.com/kyleconroy/sqlc v1.19.1/go.mod h1:A1OObCUZYaPKKHNc1eywbVySz4cA6Wq/lYVYht9asHE=
 github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0SNc=
 github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
-github.com/labstack/echo/v4 v4.11.0 h1:4Dmi59tmrnFzOchz4EXuGjJhUfcEkU28iDKsiZVOQgw=
-github.com/labstack/echo/v4 v4.11.0/go.mod h1:YuYRTSM3CHs2ybfrL8Px48bO6BAnYIN4l8wSTMP6BDQ=
+github.com/labstack/echo/v4 v4.11.1 h1:dEpLU2FLg4UVmvCGPuk/APjlH6GDpbEPti61srUUUs4=
+github.com/labstack/echo/v4 v4.11.1/go.mod h1:YuYRTSM3CHs2ybfrL8Px48bO6BAnYIN4l8wSTMP6BDQ=
 github.com/labstack/gommon v0.4.0 h1:y7cvthEAEbU0yHOf4axH8ZG2NH8knB9iNSoTO8dyIk8=
 github.com/labstack/gommon v0.4.0/go.mod h1:uW6kP17uPlLJsD3ijUYn3/M5bAxtlZhMI6m3MFxTMTM=
 github.com/leodido/go-urn v1.2.0/go.mod h1:+8+nEpDfqqsY+g338gtMEUOtuK+4dEMhiQEgxpxOKII=
