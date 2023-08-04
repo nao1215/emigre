@@ -3,7 +3,7 @@ module github.com/nao1215/emigre
 go 1.20
 
 require (
-	github.com/aws/aws-sdk-go v1.44.312
+	github.com/aws/aws-sdk-go v1.44.317
 	github.com/caarlos0/env/v9 v9.0.0
 	github.com/charmbracelet/log v0.2.2
 	github.com/go-playground/validator/v10 v10.14.1
