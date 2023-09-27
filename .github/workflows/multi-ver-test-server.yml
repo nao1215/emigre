@@ -20,4 +20,4 @@ jobs:
           go-version: ${{ matrix.go-version }}
 
       - name: MultiVersionUnitTest
-        run: make test
+        run: make test-server
