@@ -29,11 +29,15 @@ generate: ## Generate file automatically
 
 clean: ## Clean project
 	-rm -rf $(APP) cover.out cover.html
+	cd client && gradle clean
 
-test: ## Start test
+test-server: ## Start unit test for server
 	cd server && env GOOS=$(GOOS) $(GO_TEST) -cover $(GO_PKGROOT) -coverprofile=coverage.out
 	cd server && $(GO_TOOL) cover -html=coverage.out -o coverage.html
 	mv server/coverage.* .
+
+test-client: ## Start unit test for client
+	cd client && gradle test
 
 create-local-s3: ## Create local s3
 	docker-compose up -d localstack
