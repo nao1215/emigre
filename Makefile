@@ -31,9 +31,9 @@ clean: ## Clean project
 	-rm -rf $(APP) cover.out cover.html
 
 test: ## Start test
-	cd server && env GOOS=$(GOOS) $(GO_TEST) -cover $(GO_PKGROOT) -coverprofile=cover.out
-	cd server && $(GO_TOOL) cover -html=cover.out -o cover.html
-	mv server/cover.* .
+	cd server && env GOOS=$(GOOS) $(GO_TEST) -cover $(GO_PKGROOT) -coverprofile=coverage.out
+	cd server && $(GO_TOOL) cover -html=coverage.out -o coverage.html
+	mv server/coverage.* .
 
 create-local-s3: ## Create local s3
 	docker-compose up -d localstack

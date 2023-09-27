@@ -26,5 +26,5 @@ jobs:
           check-latest: true
 
       - name: Run tests with coverage report output
-        run: make test && mv server/coverage.out .
+        run: make test
       - uses: k1LoW/octocov-action@v0
