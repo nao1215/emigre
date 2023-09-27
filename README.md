@@ -1,9 +1,9 @@
 ![Coverage](https://raw.githubusercontent.com/nao1215/octocovs-central-repo/main/badges/nao1215/emigre/coverage.svg)
-[![reviewdog](https://github.com/nao1215/emigre/actions/workflows/reviewdog.yml/badge.svg)](https://github.com/nao1215/emigre/actions/workflows/reviewdog.yml)
-[![LinuxUnitTest](https://github.com/nao1215/emigre/actions/workflows/linux_test.yml/badge.svg)](https://github.com/nao1215/emigre/actions/workflows/linux_test.yml)
-[![MacUnitTest](https://github.com/nao1215/emigre/actions/workflows/mac_test.yml/badge.svg)](https://github.com/nao1215/emigre/actions/workflows/mac_test.yml)
-[![WindowsUnitTest](https://github.com/nao1215/emigre/actions/workflows/windows_test.yml/badge.svg)](https://github.com/nao1215/emigre/actions/workflows/windows_test.yml)
-[![Gosec(Security)](https://github.com/nao1215/emigre/actions/workflows/security.yml/badge.svg)](https://github.com/nao1215/emigre/actions/workflows/security.yml)
+[![reviewdog](https://github.com/nao1215/emigre/server/actions/workflows/reviewdog.yml/badge.svg)](https://github.com/nao1215/emigre/server/actions/workflows/reviewdog.yml)
+[![LinuxUnitTest](https://github.com/nao1215/emigre/server/actions/workflows/linux_test.yml/badge.svg)](https://github.com/nao1215/emigre/server/actions/workflows/linux_test.yml)
+[![MacUnitTest](https://github.com/nao1215/emigre/server/actions/workflows/mac_test.yml/badge.svg)](https://github.com/nao1215/emigre/server/actions/workflows/mac_test.yml)
+[![WindowsUnitTest](https://github.com/nao1215/emigre/server/actions/workflows/windows_test.yml/badge.svg)](https://github.com/nao1215/emigre/server/actions/workflows/windows_test.yml)
+[![Gosec(Security)](https://github.com/nao1215/emigre/server/actions/workflows/security.yml/badge.svg)](https://github.com/nao1215/emigre/server/actions/workflows/security.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nao1215/emigre)](https://goreportcard.com/report/github.com/nao1215/emigre)
 
 # emigre - Self-hosted image sharing social media

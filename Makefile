@@ -11,19 +11,19 @@ GOOS        = ""
 GOARCH      = ""
 GO_PKGROOT  = ./...
 GO_PACKAGES = $(shell $(GO_LIST) $(GO_PKGROOT))
-GO_LDFLAGS  = -ldflags '-X github.com/nao1215/emigre/version.Version=${VERSION}' -ldflags "-X github.com/nao1215/emigre/version.Revision=$(GIT_REVISION)"
+GO_LDFLAGS  = -ldflags '-X github.com/nao1215/emigre/server/version.Version=${VERSION}' -ldflags "-X github.com/nao1215/emigre/server/version.Revision=$(GIT_REVISION)"
 
 build:  ## Build binary
-	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO_BUILD) $(GO_LDFLAGS) -o $(APP) main.go
+	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO_BUILD) $(GO_LDFLAGS) -o $(APP) server/main.go
 
 run: ## Run server
-	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run main.go
+	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run server/main.go
 
 generate: ## Generate file automatically
 	docker-compose up -d db
 	$(GO) generate ./...
-	swag init
-	sqlc generate --file app/schema/sqlc.yml 
+	cd server && swag init 
+	sqlc generate --file server/app/schema/sqlc.yml 
 	tbls doc --force 
 
 clean: ## Clean project
@@ -33,7 +33,7 @@ test: ## Start test
 	env GOOS=$(GOOS) $(GO_TEST) -cover $(GO_PKGROOT) -coverprofile=cover.out
 	$(GO_TOOL) cover -html=cover.out -o cover.html
 
-create-local-s3:
+create-local-s3: ## Create local s3
 	docker-compose up -d localstack
 	$(MAKE) -f cloudformation/Makefile local-s3
 
