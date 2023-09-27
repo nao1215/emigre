@@ -1,4 +1,4 @@
-name: UnitTest
+name: UnitTest-Client
 
 on:
   workflow_dispatch:
@@ -21,6 +21,6 @@ jobs:
           cache: gradle
 
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: chmod +x client/gradlew
       - name: Test with Gradle
         run: make test-client
