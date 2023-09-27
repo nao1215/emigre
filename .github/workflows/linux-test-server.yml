@@ -1,4 +1,4 @@
-name: LinuxUnitTest
+name: LinuxUnitTest-Server
 
 on:
   workflow_dispatch:
@@ -26,5 +26,5 @@ jobs:
           check-latest: true
 
       - name: Run tests with coverage report output
-        run: go test ./... -coverprofile=coverage.out
+        run: make test
       - uses: k1LoW/octocov-action@v0

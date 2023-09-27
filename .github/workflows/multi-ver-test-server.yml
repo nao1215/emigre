@@ -1,4 +1,4 @@
-name: MultiVersionUnitTest
+name: MultiVersionUnitTest-Server
 
 on:
   push:

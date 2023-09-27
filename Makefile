@@ -14,10 +14,11 @@ GO_PACKAGES = $(shell $(GO_LIST) $(GO_PKGROOT))
 GO_LDFLAGS  = -ldflags '-X github.com/nao1215/emigre/server/version.Version=${VERSION}' -ldflags "-X github.com/nao1215/emigre/server/version.Revision=$(GIT_REVISION)"
 
 build:  ## Build binary
-	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO_BUILD) $(GO_LDFLAGS) -o $(APP) server/main.go
+	cd server && env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO_BUILD) $(GO_LDFLAGS) -o $(APP) main.go
+	mv server/$(APP) .
 
 run: ## Run server
-	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run server/main.go
+	cd server && env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run main.go
 
 generate: ## Generate file automatically
 	docker-compose up -d db
@@ -30,8 +31,9 @@ clean: ## Clean project
 	-rm -rf $(APP) cover.out cover.html
 
 test: ## Start test
-	env GOOS=$(GOOS) $(GO_TEST) -cover $(GO_PKGROOT) -coverprofile=cover.out
-	$(GO_TOOL) cover -html=cover.out -o cover.html
+	cd server && env GOOS=$(GOOS) $(GO_TEST) -cover $(GO_PKGROOT) -coverprofile=cover.out
+	cd server && $(GO_TOOL) cover -html=cover.out -o cover.html
+	mv server/cover.* .
 
 create-local-s3: ## Create local s3
 	docker-compose up -d localstack
