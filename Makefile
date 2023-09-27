@@ -11,29 +11,35 @@ GOOS        = ""
 GOARCH      = ""
 GO_PKGROOT  = ./...
 GO_PACKAGES = $(shell $(GO_LIST) $(GO_PKGROOT))
-GO_LDFLAGS  = -ldflags '-X github.com/nao1215/emigre/version.Version=${VERSION}' -ldflags "-X github.com/nao1215/emigre/version.Revision=$(GIT_REVISION)"
+GO_LDFLAGS  = -ldflags '-X github.com/nao1215/emigre/server/version.Version=${VERSION}' -ldflags "-X github.com/nao1215/emigre/server/version.Revision=$(GIT_REVISION)"
 
 build:  ## Build binary
-	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO_BUILD) $(GO_LDFLAGS) -o $(APP) main.go
+	cd server && env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO_BUILD) $(GO_LDFLAGS) -o $(APP) main.go
+	mv server/$(APP) .
 
 run: ## Run server
-	env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run main.go
+	cd server && env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run main.go
 
 generate: ## Generate file automatically
 	docker-compose up -d db
 	$(GO) generate ./...
-	swag init
-	sqlc generate --file app/schema/sqlc.yml 
+	cd server && swag init 
+	sqlc generate --file server/app/schema/sqlc.yml 
 	tbls doc --force 
 
 clean: ## Clean project
 	-rm -rf $(APP) cover.out cover.html
+	cd client && gradle clean
 
-test: ## Start test
-	env GOOS=$(GOOS) $(GO_TEST) -cover $(GO_PKGROOT) -coverprofile=cover.out
-	$(GO_TOOL) cover -html=cover.out -o cover.html
+test-server: ## Start unit test for server
+	cd server && env GOOS=$(GOOS) $(GO_TEST) -cover $(GO_PKGROOT) -coverprofile=coverage.out
+	cd server && $(GO_TOOL) cover -html=coverage.out -o coverage.html
+	mv server/coverage.* .
 
-create-local-s3:
+test-client: ## Start unit test for client
+	cd client && gradle test
+
+create-local-s3: ## Create local s3
 	docker-compose up -d localstack
 	$(MAKE) -f cloudformation/Makefile local-s3
 
