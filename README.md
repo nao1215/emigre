@@ -1,6 +1,7 @@
 ![Coverage (Server)](https://raw.githubusercontent.com/nao1215/octocovs-central-repo/main/badges/nao1215/emigre/coverage.svg)
-[![reviewdog](https://github.com/nao1215/emigre/server/actions/workflows/reviewdog.yml/badge.svg)](https://github.com/nao1215/emigre/server/actions/workflows/reviewdog.yml)
-[![LinuxUnitTest (Server)](https://github.com/nao1215/emigre/server/actions/workflows/linux_test.yml/badge.svg)](https://github.com/nao1215/emigre/server/actions/workflows/linux_test.yml)
+[![reviewdog](https://github.com/nao1215/emigre/actions/workflows/reviewdog.yml/badge.svg)](https://github.com/nao1215/emigre/actions/workflows/reviewdog.yml)
+[![LinuxUnitTest-Server](https://github.com/nao1215/emigre/actions/workflows/linux-test-server.yml/badge.svg)](https://github.com/nao1215/emigre/actions/workflows/linux-test-server.yml)
+[![UnitTest (Client)](https://github.com/nao1215/emigre/actions/workflows/unit-test-client.yml/badge.svg)](https://github.com/nao1215/emigre/actions/workflows/unit-test-client.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nao1215/emigre)](https://goreportcard.com/report/github.com/nao1215/emigre)
 
 # emigre - Self-hosted image sharing social media
