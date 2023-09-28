@@ -17,7 +17,7 @@ build:  ## Build binary
 	cd server && env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO_BUILD) $(GO_LDFLAGS) -o $(APP) main.go
 	mv server/$(APP) .
 
-run: ## Run server
+run-server: ## Run server
 	cd server && env GO111MODULE=on GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) run main.go
 
 generate: ## Generate file automatically
@@ -42,6 +42,9 @@ test-client: ## Start unit test for client
 create-local-s3: ## Create local s3
 	docker-compose up -d localstack
 	$(MAKE) -f cloudformation/Makefile local-s3
+
+run-client: ## Run client
+	cd client && gradle run
 
 .DEFAULT_GOAL := help
 help:  
