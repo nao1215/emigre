@@ -7,16 +7,17 @@
 # emigre - Self-hosted image sharing social media
 **work in progress**  
   
-Emigre is an image sharing service aiming to be a decentralized social networking platform based on ActivityPub. Currently, it is in the design phase and has very few functionalities.   
+Emigre is an image sharing service that being developed to satisfy the technical interests of the developer (myself). Specifically, the goal is to develop it by distancing oneself from the frameworks and libraries used in work.
 
-Emigre is being developed to satisfy the technical interests of the developer (myself). Specifically, the goal is to develop it by distancing oneself from the frameworks and libraries used in work.
+## Support OS
+### Server
+- Linux
 
-## Support OS & golang version
-- Linux 
-- macOS
+### Client 
+- Linux
+- MacOS
 - Windows
-- golang ver 1.18 or later
-
+  
 ## How to install
 WIP
 
@@ -26,6 +27,7 @@ WIP
 ## Documentations
 - [API Document](https://nao1215.github.io/emigre/index.html)
 - [Go reference](https://pkg.go.dev/github.com/nao1215/emigre)
+- [Roadmap in Japanese](docs/ja/roadmap.md)
 
 ## Technology stack
 The technology stack used in Emigre is introduced on [another page](./docs/technology_stack.md).
