@@ -10,7 +10,7 @@ services:
       - "3306:3306"
     volumes:
       - ./data:/var/lib/mysql
-      - ./app/schema/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./server/app/schema/schema.sql:/docker-entrypoint-initdb.d/schema.sql
 
   localstack:
     container_name: "emigre-localstack_main"

@@ -20,20 +20,21 @@ func TestHealthHandler(t *testing.T) {
 		t.Parallel()
 
 		e := echo.New()
-		e.GET("/health", health)
+		ctrl := NewHealthController()
+		e.GET("/health", ctrl.health)
 
 		req := httptest.NewRequest(http.MethodGet, "/health", nil)
 		rec := httptest.NewRecorder()
 		c := e.NewContext(req, rec)
 
-		err := health(c) // Kick handler
+		err := ctrl.health(c) // Kick handler
 
 		// Check response
 		assert.NoError(t, err)
 		assert.Equal(t, http.StatusOK, rec.Code)
 
 		// Check json response
-		want := newHealthResponse()
+		want := ctrl.newHealthResponse()
 		expected, err := json.Marshal(want)
 		if err != nil {
 			t.Fatal(err)
@@ -107,7 +108,8 @@ func TestNewHealthResponse(t *testing.T) { //nolint:paralleltest
 		version.Revision = tt.args.revision
 
 		t.Run(tt.name, func(t *testing.T) {
-			if got := newHealthResponse(); !reflect.DeepEqual(got, tt.want) {
+			ctrl := NewHealthController()
+			if got := ctrl.newHealthResponse(); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("newHealthResponse() = %v, want %v", got, tt.want)
 			}
 		})

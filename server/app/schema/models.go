@@ -10,7 +10,7 @@ import (
 
 // user table
 type User struct {
-	// ID is user id. ULID（Universally Unique Lexicographically Sortable Identifier）
+	// ID is user id that expressed in ULID（Universally Unique Lexicographically Sortable Identifier）
 	ID string
 	// Name is user name
 	Name string

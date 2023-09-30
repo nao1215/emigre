@@ -9,7 +9,7 @@ import (
 // User is a user model.
 type User struct {
 	// ID is user id. ULID（Universally Unique Lexicographically Sortable Identifier）
-	ID string
+	ID string `validate:"required,min=26,max=26"`
 	// Name is user name
 	Name string `validate:"required,min=1,max=20"`
 	// Biography is user self introduction
