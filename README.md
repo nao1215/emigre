@@ -25,8 +25,8 @@ WIP
 WIP
 
 ## Documentations
-- [API Document](https://nao1215.github.io/emigre/index.html)
-- [Go reference](https://pkg.go.dev/github.com/nao1215/emigre)
+- [API Document & DB ER diagram](https://nao1215.github.io/emigre/index.html)
+- [Go reference](https://pkg.go.dev/github.com/nao1215/emigre/server)
 - [Roadmap in Japanese](docs/ja/roadmap.md)
 
 ## Technology stack
