@@ -7,6 +7,14 @@ import (
 	"github.com/nao1215/emigre/server/version"
 )
 
+// HealthController is a controller for /health API.
+type HealthController struct{}
+
+// NewHealthController returns a new HealthController struct.
+func NewHealthController() *HealthController {
+	return &HealthController{}
+}
+
 // HealthResponse is response for GET /health
 type HealthResponse struct {
 	// @Description Name is server name.
@@ -17,8 +25,17 @@ type HealthResponse struct {
 	Revision string `json:"revision"`
 }
 
+// health return health response.
+// @Summary Get server health information
+// @Description This API is for checking server health. The api return server name, version and revision.
+// @Success 200 {object} HealthResponse
+// @Router /health [get]
+func (ctrl *HealthController) health(c echo.Context) error {
+	return c.JSON(http.StatusOK, ctrl.newHealthResponse())
+}
+
 // newHealthResponse return HealthResponse struct.
-func newHealthResponse() *HealthResponse {
+func (ctrl *HealthController) newHealthResponse() *HealthResponse {
 	ver := "unknown"
 	rev := "unknown"
 
@@ -33,13 +50,4 @@ func newHealthResponse() *HealthResponse {
 		Version:  ver,
 		Revision: rev,
 	}
-}
-
-// health return health response.
-// @Summary Get server health information
-// @Description This API is for checking server health. The api return server name, version and revision.
-// @Success 200 {object} HealthResponse
-// @Router /health [get]
-func health(c echo.Context) error {
-	return c.JSON(http.StatusOK, newHealthResponse())
 }

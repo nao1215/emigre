@@ -24,8 +24,13 @@ func NewEmigre() (*Emigre, error) {
 
 // Emigre is a struct that contains the settings for the Emigre.
 type Emigre struct {
-	// UserCreator is an interactor for creating users.
-	UserCreator usecase.UserCreator
+	User *User
+}
+
+// User is a struct that contains the settings for the user.
+type User struct {
+	// Creator is an usecase for creating users.
+	Creator usecase.UserCreator
 }
 
 // newEmigre returns a new Emigre struct.
@@ -33,6 +38,8 @@ func newEmigre(
 	uc usecase.UserCreator,
 ) *Emigre {
 	return &Emigre{
-		UserCreator: uc,
+		User: &User{
+			Creator: uc,
+		},
 	}
 }

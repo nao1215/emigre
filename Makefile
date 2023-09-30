@@ -26,6 +26,7 @@ generate: ## Generate file automatically
 	cd server && swag init 
 	sqlc generate --file server/app/schema/sqlc.yml 
 	tbls doc --force 
+	cd server && wire ./...
 
 clean: ## Clean project
 	-rm -rf $(APP) cover.out cover.html

@@ -1,6 +1,6 @@
 module github.com/nao1215/emigre/server
 
-go 1.20
+go 1.21
 
 require (
 	github.com/aws/aws-sdk-go v1.44.319
@@ -9,6 +9,7 @@ require (
 	github.com/go-playground/validator/v10 v10.15.4
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/google/go-cmp v0.5.9
+	github.com/google/wire v0.5.0
 	github.com/k1LoW/tbls v1.68.2
 	github.com/kyleconroy/sqlc v1.19.1
 	github.com/labstack/echo/v4 v4.11.1
@@ -98,6 +99,7 @@ require (
 	github.com/google/flatbuffers v2.0.8+incompatible // indirect
 	github.com/google/go-github/v49 v49.1.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
+	github.com/google/subcommands v1.0.1 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.2.3 // indirect
 	github.com/googleapis/gax-go/v2 v2.7.1 // indirect
