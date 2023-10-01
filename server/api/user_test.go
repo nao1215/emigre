@@ -21,11 +21,8 @@ var _ = Describe("User api test", func() {
 
 	Context("success to create user record in DB", func() {
 		It("return 201(Created) and created user data", func() {
-			apitest.New().
+			apitest.New("success to POST /users").
 				Report(apitest.SequenceDiagram(documentDirPath())).
-				Meta(map[string]interface{}{
-					"consumerName": "users-post",
-				}).
 				Handler(api).
 				Post("/v1/users").
 				ContentType("application/json").
