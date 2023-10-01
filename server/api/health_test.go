@@ -10,8 +10,34 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/nao1215/emigre/server/version"
-	"github.com/stretchr/testify/assert"
+	. "github.com/onsi/ginkgo"
+	"github.com/steinfletcher/apitest"
+	"github.com/zeebo/assert"
 )
+
+var _ = Describe("Health api test", func() {
+	var (
+		t   GinkgoTInterface
+		api *API
+	)
+
+	BeforeEach(func() {
+		t = GinkgoT()
+		api = NewAPI()
+	})
+
+	Context("Success to get health data", func() {
+		It("get server name, version, revision", func() {
+			apitest.New().
+				Handler(api).
+				Get("/v1/health").
+				Expect(t).
+				Body(`{"name": "emigre", "revision": "rev", "version":"v0.0.0"}`).
+				Status(http.StatusOK).
+				End()
+		})
+	})
+})
 
 func TestHealthHandler(t *testing.T) {
 	t.Parallel()

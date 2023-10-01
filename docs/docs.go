@@ -129,7 +129,8 @@ const docTemplate = `{
                 },
                 "email": {
                     "description": "Email is user email address",
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 320
                 },
                 "id": {
                     "description": "ID is user id. ULID（Universally Unique Lexicographically Sortable Identifier）",

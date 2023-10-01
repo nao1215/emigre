@@ -2,8 +2,6 @@
 package api
 
 import (
-	"fmt"
-
 	"github.com/labstack/echo/v4"
 	// Import docs for Swagger documentation generation
 	_ "github.com/nao1215/emigre/docs"
@@ -28,11 +26,7 @@ import (
 
 // Run start server.
 func Run() error {
-	api, err := NewAPI()
-	if err != nil {
-		return fmt.Errorf("failed to initialize api: %w", err)
-	}
-	return api.Start(":8080")
+	return NewAPI().Start(":8080")
 }
 
 // API is a structure that aggregates the necessary information for API execution.
@@ -48,20 +42,14 @@ type API struct {
 }
 
 // NewAPI return api struct.
-func NewAPI() (*API, error) {
+func NewAPI() *API {
 	api := new(API)
 	api.Echo = echo.New()
-
-	emigre, err := di.NewEmigre()
-	if err != nil {
-		return nil, err
-	}
-	api.emigre = emigre
-
+	api.emigre = di.NewEmigre()
 	api.setControllers()
 	api.route()
 
-	return api, nil
+	return api
 }
 
 // setControllers set controllers.

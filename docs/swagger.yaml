@@ -20,6 +20,7 @@ definitions:
         type: string
       email:
         description: Email is user email address
+        maxLength: 320
         type: string
       id:
         description: ID is user id. ULID（Universally Unique Lexicographically Sortable
