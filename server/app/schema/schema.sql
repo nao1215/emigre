@@ -8,5 +8,6 @@ CREATE TABLE `user` (
     `email` VARCHAR(320) NOT NULL COMMENT 'Email is user email address',
     `created_at` DATETIME NOT NULL COMMENT 'CreatedAt is the date that record was created',
     `updated_at` DATETIME NOT NULL COMMENT 'UpdatedAt is the date record was updated',
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `user_biography_uk` (`email`)
 ) ENGINE = InnoDB DEFAULT CHARACTER SET utf8mb4 COMMENT='user table';
