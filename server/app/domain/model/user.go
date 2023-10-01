@@ -9,13 +9,13 @@ import (
 // User is a user model.
 type User struct {
 	// ID is user id. ULID（Universally Unique Lexicographically Sortable Identifier）
-	ID string `validate:"required,min=26,max=26"`
+	ID string `json:"id" validate:"required,min=26,max=26"`
 	// Name is user name
-	Name string `validate:"required,min=1,max=20"`
+	Name string `json:"name" validate:"required,min=1,max=20"`
 	// Biography is user self introduction
-	Biography string `validate:"required,min=1,max=300"`
+	Biography string `json:"biography" validate:"required,min=1,max=300"`
 	// Email is user email address
-	Email string `validate:"required,email,max=320"`
+	Email string `json:"email" validate:"required,email,max=320"`
 }
 
 // NewUser is a constructor of User.

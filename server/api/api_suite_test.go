@@ -1,6 +1,7 @@
-package api_test
+package api
 
 import (
+	"path/filepath"
 	"testing"
 
 	. "github.com/onsi/ginkgo"
@@ -9,5 +10,9 @@ import (
 
 func TestApi(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Api Suite")
+	RunSpecs(t, "API Suite")
+}
+
+func documentDirPath() string {
+	return filepath.Join("..", "..", "docs")
 }

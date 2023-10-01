@@ -27,12 +27,22 @@ var _ = Describe("Health api test", func() {
 	})
 
 	Context("Success to get health data", func() {
+		BeforeSuite(func() {
+			version.TagVersion = "v0.0.1"
+			version.Revision = "revision-0.0.1"
+		})
+		defer func() {
+			version.TagVersion = ""
+			version.Revision = ""
+		}()
+
 		It("get server name, version, revision", func() {
 			apitest.New().
+				Report(apitest.SequenceDiagram(documentDirPath())).
 				Handler(api).
 				Get("/v1/health").
 				Expect(t).
-				Body(`{"name": "emigre", "revision": "rev", "version":"v0.0.0"}`).
+				Body(`{"name": "emigre", "revision": "revision-0.0.1", "version":"v0.0.1"}`).
 				Status(http.StatusOK).
 				End()
 		})
