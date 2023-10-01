@@ -11,20 +11,20 @@ import (
 	echoSwagger "github.com/swaggo/echo-swagger"
 )
 
-// @title Emigre API Swagger
-// @version 0.0.1
-// @description This is a emigre API server swagger.
-// @termsOfService https://github.com/nao1215/emigre
+//	@title			Emigre API Swagger
+//	@version		0.0.1
+//	@description	This is a emigre API server swagger.
+//	@termsOfService	https://github.com/nao1215/emigre
 
-// @contact.name Naohiro CHIKAMATSU (Author)
-// @contact.url https://github.com/nao1215/emigre/server/issues
-// @contact.email n.chika156@gmail
+//	@contact.name	Naohiro CHIKAMATSU (Author)
+//	@contact.url	https://github.com/nao1215/emigre/server/issues
+//	@contact.email	n.chika156@gmail
 
-// @license.name MIT License
-// @license.url https://github.com/nao1215/emigre/server/blob/main/LICENSE
+//	@license.name	MIT License
+//	@license.url	https://github.com/nao1215/emigre/server/blob/main/LICENSE
 
-// @host https://nao1215.github.io/emigre/html/index.html
-// @BasePath /v1
+//	@host		https://nao1215.github.io/emigre/html/index.html
+//	@BasePath	/v1
 
 // Run start server.
 func Run() error {

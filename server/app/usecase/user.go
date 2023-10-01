@@ -1,7 +1,11 @@
 // Package usecase is an abstraction layer for business logic.
 package usecase
 
-import "context"
+import (
+	"context"
+
+	"github.com/nao1215/emigre/server/app/domain/model"
+)
 
 // UserCreatorInput is an input struct for UserCreator.
 type UserCreatorInput struct {
@@ -14,7 +18,9 @@ type UserCreatorInput struct {
 }
 
 // UserCreatorOutput is an output struct for UserCreator.
-type UserCreatorOutput struct{}
+type UserCreatorOutput struct {
+	User *model.User
+}
 
 // UserCreator is an interface for creating users.
 type UserCreator interface {

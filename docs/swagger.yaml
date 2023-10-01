@@ -2,14 +2,41 @@ definitions:
   api.HealthResponse:
     properties:
       name:
-        description: '@Description Name is server name.'
+        description: "@Description\tName is server name."
         type: string
       revision:
-        description: '@Description Revision is git revision'
+        description: "@Description\tRevision is git revision"
         type: string
       version:
-        description: '@Description Version is repository tag version'
+        description: "@Description\tVersion is repository tag version"
         type: string
+    type: object
+  model.User:
+    properties:
+      biography:
+        description: Biography is user self introduction
+        maxLength: 300
+        minLength: 1
+        type: string
+      email:
+        description: Email is user email address
+        type: string
+      id:
+        description: ID is user id. ULID（Universally Unique Lexicographically Sortable
+          Identifier）
+        maxLength: 26
+        minLength: 26
+        type: string
+      name:
+        description: Name is user name
+        maxLength: 20
+        minLength: 1
+        type: string
+    required:
+    - biography
+    - email
+    - id
+    - name
     type: object
 info:
   contact: {}
@@ -18,10 +45,53 @@ paths:
     get:
       description: This API is for checking server health. The api return server name,
         version and revision.
+      produces:
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/api.HealthResponse'
       summary: Get server health information
+      tags:
+      - health
+  /users:
+    post:
+      consumes:
+      - application/json
+      description: This API crate user record. If the user already exists, it returns
+        an error.
+      parameters:
+      - description: user name. 0 < len < 21
+        in: body
+        name: name
+        required: true
+        schema:
+          type: string
+      - description: user biography. max length is 300
+        in: body
+        name: biography
+        required: true
+        schema:
+          type: string
+      - description: email address. max length is 320
+        in: body
+        name: email
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.User'
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: create user.
+      tags:
+      - users
 swagger: "2.0"
