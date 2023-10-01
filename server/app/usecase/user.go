@@ -19,6 +19,7 @@ type UserCreatorInput struct {
 
 // UserCreatorOutput is an output struct for UserCreator.
 type UserCreatorOutput struct {
+	// User is the created user.
 	User *model.User
 }
 

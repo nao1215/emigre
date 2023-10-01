@@ -15,7 +15,7 @@ type User struct {
 	// Biography is user self introduction
 	Biography string `validate:"required,min=1,max=300"`
 	// Email is user email address
-	Email string `validate:"required,email"`
+	Email string `validate:"required,email,max=320"`
 }
 
 // NewUser is a constructor of User.

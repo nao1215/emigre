@@ -14,6 +14,7 @@ require (
 	github.com/kyleconroy/sqlc v1.19.1
 	github.com/labstack/echo/v4 v4.11.1
 	github.com/nao1215/emigre v0.0.0-20230927141818-e21d72731c99
+	github.com/oklog/ulid/v2 v2.1.0
 	github.com/spf13/cobra v1.7.0
 	github.com/stretchr/testify v1.8.4
 	github.com/swaggo/echo-swagger v1.4.0
