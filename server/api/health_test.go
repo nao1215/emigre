@@ -10,8 +10,44 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/nao1215/emigre/server/version"
-	"github.com/stretchr/testify/assert"
+	. "github.com/onsi/ginkgo"
+	"github.com/steinfletcher/apitest"
+	"github.com/zeebo/assert"
 )
+
+var _ = Describe("Health api test", func() {
+	var (
+		t   GinkgoTInterface
+		api *API
+	)
+
+	BeforeEach(func() {
+		t = GinkgoT()
+		api = NewAPI()
+	})
+
+	Context("Success to get health data", func() {
+		BeforeSuite(func() {
+			version.TagVersion = "v0.0.1"
+			version.Revision = "revision-0.0.1"
+		})
+		defer func() {
+			version.TagVersion = ""
+			version.Revision = ""
+		}()
+
+		It("get server name, version, revision", func() {
+			apitest.New().
+				Report(apitest.SequenceDiagram(documentDirPath())).
+				Handler(api).
+				Get("/v1/health").
+				Expect(t).
+				Body(`{"name": "emigre", "revision": "revision-0.0.1", "version":"v0.0.1"}`).
+				Status(http.StatusOK).
+				End()
+		})
+	})
+})
 
 func TestHealthHandler(t *testing.T) {
 	t.Parallel()

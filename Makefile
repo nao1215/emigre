@@ -23,7 +23,7 @@ run-server: ## Run server
 generate: ## Generate file automatically
 	docker-compose up -d db
 	$(GO) generate ./...
-	cd server && swag init 
+	cd server && swag fmt && swag init --output ../docs
 	sqlc generate --file server/app/schema/sqlc.yml 
 	tbls doc --force 
 	cd server && wire ./...

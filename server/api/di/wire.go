@@ -22,13 +22,13 @@ type User struct {
 }
 
 // NewEmigre returns a new Emigre struct.
-func NewEmigre() (*Emigre, error) {
+func NewEmigre() *Emigre {
 	wire.Build(
 		interactor.NewUserCreator,
 		wire.Bind(new(usecase.UserCreator), new(*interactor.UserCreator)),
 		newEmigre,
 	)
-	return nil, nil
+	return nil
 }
 
 // newEmigre returns a new Emigre struct.

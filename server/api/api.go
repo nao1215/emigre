@@ -2,8 +2,6 @@
 package api
 
 import (
-	"fmt"
-
 	"github.com/labstack/echo/v4"
 	// Import docs for Swagger documentation generation
 	_ "github.com/nao1215/emigre/docs"
@@ -11,28 +9,24 @@ import (
 	echoSwagger "github.com/swaggo/echo-swagger"
 )
 
-// @title Emigre API Swagger
-// @version 0.0.1
-// @description This is a emigre API server swagger.
-// @termsOfService https://github.com/nao1215/emigre
+//	@title			Emigre API Swagger
+//	@version		0.0.1
+//	@description	This is a emigre API server swagger.
+//	@termsOfService	https://github.com/nao1215/emigre
 
-// @contact.name Naohiro CHIKAMATSU (Author)
-// @contact.url https://github.com/nao1215/emigre/server/issues
-// @contact.email n.chika156@gmail
+//	@contact.name	Naohiro CHIKAMATSU (Author)
+//	@contact.url	https://github.com/nao1215/emigre/server/issues
+//	@contact.email	n.chika156@gmail
 
-// @license.name MIT License
-// @license.url https://github.com/nao1215/emigre/server/blob/main/LICENSE
+//	@license.name	MIT License
+//	@license.url	https://github.com/nao1215/emigre/server/blob/main/LICENSE
 
-// @host https://nao1215.github.io/emigre/html/index.html
-// @BasePath /v1
+//	@host		https://nao1215.github.io/emigre/html/index.html
+//	@BasePath	/v1
 
 // Run start server.
 func Run() error {
-	api, err := NewAPI()
-	if err != nil {
-		return fmt.Errorf("failed to initialize api: %w", err)
-	}
-	return api.Start(":8080")
+	return NewAPI().Start(":8080")
 }
 
 // API is a structure that aggregates the necessary information for API execution.
@@ -48,20 +42,14 @@ type API struct {
 }
 
 // NewAPI return api struct.
-func NewAPI() (*API, error) {
+func NewAPI() *API {
 	api := new(API)
 	api.Echo = echo.New()
-
-	emigre, err := di.NewEmigre()
-	if err != nil {
-		return nil, err
-	}
-	api.emigre = emigre
-
+	api.emigre = di.NewEmigre()
 	api.setControllers()
 	api.route()
 
-	return api, nil
+	return api
 }
 
 // setControllers set controllers.

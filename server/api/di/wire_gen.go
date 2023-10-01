@@ -14,10 +14,10 @@ import (
 // Injectors from wire.go:
 
 // NewEmigre returns a new Emigre struct.
-func NewEmigre() (*Emigre, error) {
+func NewEmigre() *Emigre {
 	userCreator := interactor.NewUserCreator()
 	emigre := newEmigre(userCreator)
-	return emigre, nil
+	return emigre
 }
 
 // wire.go:
