@@ -10,7 +10,7 @@ require (
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/google/go-cmp v0.5.9
 	github.com/google/wire v0.5.0
-	github.com/k1LoW/tbls v1.68.2
+	github.com/k1LoW/tbls v1.69.2
 	github.com/kyleconroy/sqlc v1.19.1
 	github.com/labstack/echo/v4 v4.11.1
 	github.com/nao1215/emigre v0.0.0-20230927141818-e21d72731c99
