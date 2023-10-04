@@ -5,7 +5,7 @@ go 1.21
 require (
 	github.com/aws/aws-sdk-go v1.45.21
 	github.com/caarlos0/env/v9 v9.0.0
-	github.com/charmbracelet/log v0.2.4
+	github.com/charmbracelet/log v0.2.5
 	github.com/go-playground/validator/v10 v10.15.5
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/google/go-cmp v0.5.9
