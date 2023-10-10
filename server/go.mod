@@ -8,7 +8,7 @@ require (
 	github.com/charmbracelet/log v0.2.5
 	github.com/go-playground/validator/v10 v10.15.5
 	github.com/go-sql-driver/mysql v1.7.1
-	github.com/google/go-cmp v0.5.9
+	github.com/google/go-cmp v0.6.0
 	github.com/google/wire v0.5.0
 	github.com/k1LoW/tbls v1.70.0
 	github.com/kyleconroy/sqlc v1.19.1
