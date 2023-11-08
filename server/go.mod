@@ -16,7 +16,7 @@ require (
 	github.com/nao1215/emigre v0.0.0-20230927141818-e21d72731c99
 	github.com/oklog/ulid/v2 v2.1.0
 	github.com/onsi/ginkgo v1.16.5
-	github.com/onsi/gomega v1.28.0
+	github.com/onsi/gomega v1.30.0
 	github.com/spf13/cobra v1.7.0
 	github.com/steinfletcher/apitest v1.5.15
 	github.com/steinfletcher/apitest-jsonpath v1.7.2
