@@ -3,7 +3,7 @@ module github.com/nao1215/emigre/server
 go 1.21
 
 require (
-	github.com/aws/aws-sdk-go v1.45.24
+	github.com/aws/aws-sdk-go v1.48.16
 	github.com/caarlos0/env/v9 v9.0.0
 	github.com/charmbracelet/log v0.2.5
 	github.com/go-playground/validator/v10 v10.15.5
